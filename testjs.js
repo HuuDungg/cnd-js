@@ -1,4 +1,3 @@
-alert("this is a simple js file")
 // Ẩn nội dung menu cũ
 var originalMenu = document.querySelector('.header-wrapper');
 originalMenu.style.display = 'none';
