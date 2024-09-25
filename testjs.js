@@ -185,7 +185,7 @@ const generateHTML = (data) => {
   let html = "<nav> <ul class='horizontal-menu' id='menu-main'>";
 
   data.forEach(item => {
-    let attributes = `id='${item.id}' class='${item.class}' style='${item.css}'`;
+    let attributes = `id='${item.id}' class='header__menu-item list-menu__item link link--text focus-inset' style='${item.css}'`;
     // Xử lý thẻ <a> hoặc thẻ khác
     switch (item.tag) {
       case 'a':
@@ -232,7 +232,7 @@ const generateHTML = (data) => {
   });
 
   html += '</ul></nav>';
-  html += `<style>.menu-container{width:100%;position:relative;}.horizontal-menu{list-style:none;padding:0;margin:0;display:flex;}.horizontal-menu>li{position:relative;}.horizontal-menu>li>a{display:block;padding:10px 15px;color:white;text-decoration:none;}.horizontal-menu>li>a:hover{background-color:#555;}.submenu{list-style:none;padding:0;margin:0;position:absolute;top:100%;left:0;width:100%;display:none;background-color:#333;z-index:1000;}.submenu>li>a{display:block;padding:10px 15px;color:white;text-decoration:none;}.submenu>li>a:hover{background-color:#555;}.horizontal-menu>li:hover>.submenu{display:block;}.nav-menu{display:flex;justify-content:center;align-items:center;padding:0;margin:0;background-color:#333;}.nav-menu>.horizontal-menu>li{margin:0 20px;}</style>`
+  html += `<style>.menu-container{width:100%;position:relative;}.horizontal-menu{list-style:none;padding:0;margin:0;display:flex;background-color:#333;}.horizontal-menu>li{position:relative;}.horizontal-menu>li>a{display:block;padding:10px 15px;color:white;text-decoration:none;background-color:#333;}.horizontal-menu>li>a:hover{background-color:#555;}.submenu{list-style:none;padding:0;margin:0;position:absolute;top:100%;left:0;width:100%;display:none;background-color:#333;z-index:1000;}.submenu>li>a{display:block;padding:10px 15px;color:white;text-decoration:none;}.submenu>li>a:hover{background-color:#555;}.horizontal-menu>li:hover>.submenu{display:block;}.nav-menu{display:flex;justify-content:center;align-items:center;padding:0;margin:0;background-color:#333;}.nav-menu>.horizontal-menu>li{margin:0 20px;}</style>`
   return html;
 };
 
