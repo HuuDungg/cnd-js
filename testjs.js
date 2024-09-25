@@ -232,7 +232,6 @@ const generateHTML = (data) => {
   });
 
   html += '</ul></nav>';
-  html += `<style>.menu-container{width:100%;position:relative;}.horizontal-menu{list-style:none;padding:0;margin:0;display:flex;background-color:#333;}.horizontal-menu>li{position:relative;}.horizontal-menu>li>a{display:block;padding:10px 15px;color:white;text-decoration:none;background-color:#333;}.horizontal-menu>li>a:hover{background-color:#555;}.submenu{list-style:none;padding:0;margin:0;position:absolute;top:100%;left:0;width:100%;display:none;background-color:#333;z-index:1000;}.submenu>li>a{display:block;padding:10px 15px;color:white;text-decoration:none;}.submenu>li>a:hover{background-color:#555;}.horizontal-menu>li:hover>.submenu{display:block;}.nav-menu{display:flex;justify-content:center;align-items:center;padding:0;margin:0;background-color:#333;}.nav-menu>.horizontal-menu>li{margin:0 20px;}</style>`
   return html;
 };
 
