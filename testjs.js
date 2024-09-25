@@ -185,7 +185,7 @@ const generateHTML = (data) => {
   let html = "<nav> <ul class='horizontal-menu' id='menu-main'>";
 
   data.forEach(item => {
-    let attributes = `id='${item.id}' class='header__menu-item list-menu__item link link--text focus-inset' style='${item.css}'`;
+    let attributes = `id='${item.id}' class='${item.class} header__menu-item list-menu__item link link--text focus-inset' style='${item.css}'`;
     // Xử lý thẻ <a> hoặc thẻ khác
     switch (item.tag) {
       case 'a':
