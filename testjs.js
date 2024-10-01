@@ -240,9 +240,64 @@ const generateHTML = (data) => {
   return html;
 };
 
+const generateHTMLMobile = (data) => {
+  let html = "<nav> <ul class='horizontal-menu' id='menu-main'>";
+
+  data.forEach(item => {
+    let attributes = `id='${item.id}' class='${item.class}' style='${item.css}'`;
+    // Xử lý thẻ <a> hoặc thẻ khác
+    switch (item.tag) {
+      case 'a':
+        // Thêm CSS inline cho thẻ <a>
+        html += `<li><${item.tag} ${attributes} href='${item.href}' level='${item.level}'> ${item.content} </${item.tag}>`;
+        html += `<div class='${item.level === 1 ? 'custom-line' : ''}'></div>`;
+        break;
+
+      case 'button':
+        // Thêm CSS inline cho thẻ <button>
+        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes} style='padding: 5px 10px; background-color: #007BFF; color: white; border: none; cursor: pointer;'>${item.content}</${item.tag}></li>`;
+        break;
+
+      case 'div':
+        // Thêm CSS inline cho thẻ <div>
+        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes} style='padding: 10px; background-color: #f0f0f0;'>${item.content}</${item.tag}></li>`;
+        break;
+
+      case 'span':
+        // Thêm CSS inline cho thẻ <span>
+        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes} style='font-size: 14px;'>${item.content}</${item.tag}></li>`;
+        break;
+
+      case 'img':
+        // Thêm CSS inline cho thẻ <img>
+        html += `<li style='margin-right: 10px;' class='${item.class.includes('menu-8') ? 'horizontal-img-item' : 't-center'}'><${item.tag} ${attributes} src='${item.href}' alt='${item.content}' style='${item.css}'>`;
+        html += `<div class='${item.class.includes('menu-8') ? 'content-position' : ''}'></div></li>`;
+        break;
+
+      default:
+        // Xử lý các thẻ khác
+        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes}>${item.content}</${item.tag}></li>`;
+        break;
+    }
+
+    // Xử lý children nếu có
+    if (item.children && item.children.length > 0) {
+      html += `<ul class='submenu'>`;
+      html += generateHTML(item.children);
+      html += `</ul>`;
+    }
+
+    html += `</li>`;
+  });
+
+  html += '</ul></nav>';
+  html += `<style>.menu-container{width:100%;position:relative;}.horizontal-menu{padding:0;margin:0;display:flex;}.horizontal-menu>li{position:relative;}.horizontal-menu>li>a{display:block;padding:10px 15px;text-decoration:none;}.horizontal-menu>li>a:hover{background-color:#555;}.submenu{list-style:none;padding:0;margin:0;position:absolute;top:100%;left:0;width:100%;display:none;background-color:#333;z-index:1000;}.submenu>li>a{display:block;padding:10px 15px;text-decoration:none;}.submenu>li>a:hover{background-color:#555;}.horizontal-menu>li:hover>.submenu{display:block;}.nav-menu{display:flex;justify-content:center;align-items:center;padding:0;margin:0;background-color:#333;}.nav-menu>.horizontal-menu>li{margin:0 20px;}</style>`
+  return html;
+};
+
 // Tạo menu mới
 var newMenu = generateHTML(MENU_DATA);
-
+var newMenuMobile = generateHTMLMobile(MENU_DATA);
 // Chèn menu mới vào trong .header-wrapper
 originalMenu.insertAdjacentHTML('afterend', newMenu);
 mobileMenu.insertAdjacentHTML('afterend', newMenu);
