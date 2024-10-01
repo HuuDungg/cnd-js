@@ -1,8 +1,10 @@
 // Ẩn nội dung menu cũ
 // var originalMenu = document.querySelector('.header-wrapper');
 var originalMenu = document.querySelector('.header__inline-menu');
+var mobileMenu = document.querySelector(".menu-drawer__navigation");
 
 originalMenu.style.display = 'none';
+mobileMenu.style.display = 'none';
 
 const MENU_DATA =
   [
@@ -243,4 +245,4 @@ var newMenu = generateHTML(MENU_DATA);
 
 // Chèn menu mới vào trong .header-wrapper
 originalMenu.insertAdjacentHTML('afterend', newMenu);
-
+mobileMenu.insertAdjacentHTML('afterend', newMenu);
