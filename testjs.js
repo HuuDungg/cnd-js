@@ -683,21 +683,21 @@ const MENU_DATA =
   ]
 
 
-export const generateHTML = (data) => {
+const generateHTML = (data) => {
   let html = '<nav> <ul class=\'horizontal-list\'>'; // Sửa class để phù hợp với yêu cầu
 
   data.forEach(item => {
     // Xử lý thẻ <a> hoặc thẻ khác
     html += '<li>'; // Mở thẻ <li> ở đây
 
-    //handle if have not child
+    //handle if have not child  
     if (item.children.length === 0) {
-      html += `<a class=\'title-menu\' href=\'${item.href}\'>${item.name}</a>`;
+      html += `<a class=\'title-menu\ header__menu-item\' href=\'${item.href}\'>${item.name}</a>`;
     }
 
     // Xử lý children nếu có
     if (item.children && item.children.length > 0) {
-      html += `<a class=\'title-menu\' href=\'${item.href}\'>${item.name}</a>`;
+      html += `<a class=\'title-menu\ header__menu-item\' href=\'${item.href}\'>${item.name}</a>`;
       html += '<ul class=\'panel-menu\'>';
       html += generateChildMenu(item.children);
       html += '</ul>';
@@ -707,7 +707,7 @@ export const generateHTML = (data) => {
   });
 
   html += '</ul></nav>';
-  html += "<style>.panel-menu{display:none;background-color:#4CAF50;position:absolute;width:100vw;left:0;min-height:200px;list-style:none;}.title-menu:hover+.panel-menu,.panel-menu:hover{display:flex;}.horizontal-list{list-style:none;padding:0;margin:0;display:flex;}.title-menu{padding:10px 15px;color:black;text-decoration:none;}.menu-item{display:block;padding:10px 15px;color:white;text-decoration:none;}.menu-item:hover{background-color:rgba(255,255,255,0.3);}.menu-inmenu{list-style-type:none;}.panel-menu,.panel-mega-menu ul{justify-content:space-around;padding:10px;}.menu{padding:10px 0;}.panel-mega-menu ul li{padding:5px 10px;color:white;}.sub-child{position:relative;left:5px;}</style>"
+  html += "<style>.title-menu:hover{text-decoration:underline;}.panel-menu{display:none;background-color:#4CAF50;position:absolute;width:100vw;left:0;min-height:200px;list-style:none;}.title-menu:hover+.panel-menu,.panel-menu:hover{display:flex;}.horizontal-list{list-style:none;padding:0;margin:0;display:flex;}.title-menu{padding:10px 15px;text-decoration:none;}.menu-item{display:block;padding:10px 15px;color:white;text-decoration:none;}.menu-item:hover{background-color:rgba(255,255,255,0.3);}.menu-inmenu{list-style-type:none;}.panel-menu,.panel-mega-menu ul{justify-content:space-around;padding:10px;}.menu{padding:10px 0;}.panel-mega-menu ul li{padding:5px 10px;color:white;}.sub-child{position:relative;left:5px;}</style>"
 
   return html;
 };
@@ -723,7 +723,7 @@ const generateChildMenu = (data) => {
     if (item.tag === 'img') {
       html += `<img class=\'title-menu\' src=\'${item.href}\' style=\'overflow: hidden; width: 170px; height: 170px;\' />`;
     } else {
-      html += `<a class=\'title-menu\' href=\'${item.href}\'>${item.name}</a>`;
+      html += `<a class=\'title-menu\ header__menu-item \' href=\'${item.href}\'>${item.name}</a>`;
     }
 
     // // Kiểm tra nếu có children và gọi lại hàm generateChildMenu để tạo submenu
@@ -739,7 +739,7 @@ const generateChildMenu = (data) => {
 }
 
 //generate panel below nav
-export const generatePanel = (data) => {
+const generatePanel = (data) => {
   let html = '';
   html += '<div class=\'panel-mega-menu\'>';
   data.forEach(item => {
@@ -747,7 +747,7 @@ export const generatePanel = (data) => {
     if (item.tag === 'img') {
       html += `<img class=\'title-menu\' src=\'${item.href}\' style=\'overflow: hidden; width: 170px; height: 170px;\' />`;
     } else {
-      html += `<a class=\'title-menu\' href=\'${item.href}\'>${item.name}</a>`;
+      html += `<a class=\'title-menu\ header__menu-item \' href=\'${item.href}\'>${item.name}</a>`;
     }
     html += '</ul>';
     if (item.children && item.children.length > 0) {
