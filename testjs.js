@@ -185,58 +185,48 @@ const MENU_DATA =
   ]
 
 
-const generateHTML = (data) => {
-  let html = "<nav> <ul class='horizontal-menu' id='menu-main'>";
+export const generateHTML = (data) => {
+  let html = "<nav> <ul class='horizontal-list'>"; // Sửa class để phù hợp với yêu cầu
 
   data.forEach(item => {
     let attributes = `id='${item.id}' class='${item.class}' style='${item.css}'`;
     // Xử lý thẻ <a> hoặc thẻ khác
+    html += `<li>`; // Mở thẻ <li> ở đây
+
     switch (item.tag) {
       case 'a':
         // Thêm CSS inline cho thẻ <a>
-        html += `<li><${item.tag} ${attributes} href='${item.href}' level='${item.level}'> ${item.content} </${item.tag}>`;
-        html += `<div class='${item.level === 1 ? 'custom-line' : ''}'></div>`;
-        break;
-
-      case 'button':
-        // Thêm CSS inline cho thẻ <button>
-        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes} style='padding: 5px 10px; background-color: #007BFF; color: white; border: none; cursor: pointer;'>${item.content}</${item.tag}></li>`;
+        html += `<${item.tag} ${attributes} href='${item.href}' level='${item.level}'> ${item.content} </${item.tag}>`;
         break;
 
       case 'div':
         // Thêm CSS inline cho thẻ <div>
-        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes} style='padding: 10px; background-color: #f0f0f0;'>${item.content}</${item.tag}></li>`;
-        break;
-
-      case 'span':
-        // Thêm CSS inline cho thẻ <span>
-        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes} style='font-size: 14px;'>${item.content}</${item.tag}></li>`;
+        html += `<${item.tag} ${attributes} style='padding: 10px; background-color: #f0f0f0;'>${item.content}</${item.tag}>`;
         break;
 
       case 'img':
         // Thêm CSS inline cho thẻ <img>
-        html += `<li style='margin-right: 10px;' class='${item.class.includes('menu-8') ? 'horizontal-img-item' : 't-center'}'><${item.tag} ${attributes} src='${item.href}' alt='${item.content}' style='${item.css}'>`;
-        html += `<div class='${item.class.includes('menu-8') ? 'content-position' : ''}'></div></li>`;
+        html += `<${item.tag} ${attributes} src='${item.href}' alt='${item.content}' style='${item.css}'>`;
         break;
 
       default:
         // Xử lý các thẻ khác
-        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes}>${item.content}</${item.tag}></li>`;
+        html += `<${item.tag} ${attributes}>${item.content}</${item.tag}>`;
         break;
     }
 
     // Xử lý children nếu có
     if (item.children && item.children.length > 0) {
-      html += `<ul class='submenu'>`;
+      html += `<div class='menu-child'>`; // Thay đổi thành <div> cho menu con
       html += generateHTML(item.children);
-      html += `</ul>`;
+      html += `</div>`;
     }
 
-    html += `</li>`;
+    html += `</li>`; // Đóng thẻ <li> ở đây
   });
 
   html += '</ul></nav>';
-  html += `<style>.menu-container{width:100%;position:relative;}.horizontal-menu{list-style:none;padding:0;margin:0;display:flex;}.horizontal-menu>li{position:relative;}.horizontal-menu>li>a{display:block;padding:10px 15px;text-decoration:none;}.horizontal-menu>li>a:hover{background-color:#555;}.submenu{list-style:none;padding:0;margin:0;position:absolute;top:100%;left:0;width:100%;display:none;background-color:#333;z-index:1000;}.submenu>li>a{display:block;padding:10px 15px;text-decoration:none;}.submenu>li>a:hover{background-color:#555;}.horizontal-menu>li:hover>.submenu{display:block;}.nav-menu{display:flex;justify-content:center;align-items:center;padding:0;margin:0;background-color:#333;}.nav-menu>.horizontal-menu>li{margin:0 20px;}</style>`
+  html += '<style>body{margin:0}.horizontal-list{list-style-type:none;padding:0;margin:0;display:flex}.horizontal-list li{position:relative;margin-right:20px;border-bottom:1px solid transparent}.horizontal-list li:last-child{margin-right:0}.horizontal-list li:hover{border-bottom:1px solid black}.menu-child{width:100vw;height:110px;background-color:rebeccapurple;display:none;position:fixed;top:15px;left:0;z-index:1}.horizontal-list li:hover .menu-child,.menu-child:hover{display:block}</style>'
   return html;
 };
 
