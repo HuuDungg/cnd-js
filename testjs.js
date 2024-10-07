@@ -189,105 +189,72 @@ export const generateHTML = (data) => {
   let html = "<nav> <ul class='horizontal-list'>"; // Sửa class để phù hợp với yêu cầu
 
   data.forEach(item => {
-    let attributes = `id='${item.id}' class='${item.class}' style='${item.css}'`;
     // Xử lý thẻ <a> hoặc thẻ khác
     html += `<li>`; // Mở thẻ <li> ở đây
 
-    switch (item.tag) {
-      case 'a':
-        // Thêm CSS inline cho thẻ <a>
-        html += `<${item.tag} ${attributes} href='${item.href}' level='${item.level}'> ${item.content} </${item.tag}>`;
-        break;
-
-      case 'div':
-        // Thêm CSS inline cho thẻ <div>
-        html += `<${item.tag} ${attributes} style='padding: 10px; background-color: #f0f0f0;'>${item.content}</${item.tag}>`;
-        break;
-
-      case 'img':
-        // Thêm CSS inline cho thẻ <img>
-        html += `<${item.tag} ${attributes} src='${item.href}' alt='${item.content}' style='${item.css}'>`;
-        break;
-
-      default:
-        // Xử lý các thẻ khác
-        html += `<${item.tag} ${attributes}>${item.content}</${item.tag}>`;
-        break;
+    //handle if have not child
+    if (item.children.length === 0) {
+      html += `<a class="title-menu" href="${item.href}">${item.name}</a>`
     }
 
     // Xử lý children nếu có
     if (item.children && item.children.length > 0) {
-      html += `<div class='menu-child'>`; // Thay đổi thành <div> cho menu con
-      html += generateHTML(item.children);
-      html += `</div>`;
+      html += `<a class="title-menu" href="${item.href}">${item.name}</a>`
+      html += `<ul class='panel-menu'>`
+      html += generateChildMenu(item.children)
+      html += `</ul>`
     }
 
     html += `</li>`; // Đóng thẻ <li> ở đây
   });
 
   html += '</ul></nav>';
-  html += '<style>body{margin:0}.horizontal-list{list-style-type:none;padding:0;margin:0;display:flex}.horizontal-list li{position:relative;margin-right:20px;border-bottom:1px solid transparent}.horizontal-list li:last-child{margin-right:0}.horizontal-list li:hover{border-bottom:1px solid black}.menu-child{width:100vw;height:110px;background-color:rebeccapurple;display:none;position:fixed;top:15px;left:0;z-index:1}.horizontal-list li:hover .menu-child,.menu-child:hover{display:block}</style>'
+  html += "<style>.panel-menu{display:none;background-color:#4CAF50;position:absolute;width:100vw;left:0;min-height:200px;list-style:none;}.title-menu:hover+.panel-menu,.panel-menu:hover{display:flex;}.horizontal-list{list-style:none;padding:0;margin:0;display:flex;}.title-menu{padding:10px 15px;color:black;text-decoration:none;}.menu-item{display:block;padding:10px 15px;color:white;text-decoration:none;}.menu-item:hover{background-color:rgba(255,255,255,0.3);}.menu-inmenu{list-style-type:none;}.panel-menu,.panel-mega-menu ul{justify-content:space-around;padding:10px;}.menu{padding:10px 0;}.panel-mega-menu ul li{padding:5px 10px;color:white;}.sub-child{position:relative;left:5px;}</style>"
   return html;
 };
 
-const generateHTMLMobile = (data) => {
-  let html = "<nav> <ul class='horizontal-menu' id='menu-main'>";
+
+//generate panel show menu child
+const generateChildMenu = (data) => {
+  let html = ''; // Khởi tạo div cho menu
 
   data.forEach(item => {
-    let attributes = `id='${item.id}' class='${item.class}' style='${item.css}'`;
-    // Xử lý thẻ <a> hoặc thẻ khác
-    switch (item.tag) {
-      case 'a':
-        // Thêm CSS inline cho thẻ <a>
-        html += `<li><${item.tag} ${attributes} href='${item.href}' level='${item.level}'> ${item.content} </${item.tag}>`;
-        html += `<div class='${item.level === 1 ? 'custom-line' : ''}'></div>`;
-        break;
+    html += '<li class="menu">'
+    // Tạo thẻ cho mỗi mục
+    html += `<a class="title-menu" href="${item.href}">${item.name}</a>`
 
-      case 'button':
-        // Thêm CSS inline cho thẻ <button>
-        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes} style='padding: 5px 10px; background-color: #007BFF; color: white; border: none; cursor: pointer;'>${item.content}</${item.tag}></li>`;
-        break;
-
-      case 'div':
-        // Thêm CSS inline cho thẻ <div>
-        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes} style='padding: 10px; background-color: #f0f0f0;'>${item.content}</${item.tag}></li>`;
-        break;
-
-      case 'span':
-        // Thêm CSS inline cho thẻ <span>
-        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes} style='font-size: 14px;'>${item.content}</${item.tag}></li>`;
-        break;
-
-      case 'img':
-        // Thêm CSS inline cho thẻ <img>
-        html += `<li style='margin-right: 10px;' class='${item.class.includes('menu-8') ? 'horizontal-img-item' : 't-center'}'><${item.tag} ${attributes} src='${item.href}' alt='${item.content}' style='${item.css}'>`;
-        html += `<div class='${item.class.includes('menu-8') ? 'content-position' : ''}'></div></li>`;
-        break;
-
-      default:
-        // Xử lý các thẻ khác
-        html += `<li style='margin-right: 10px;'><${item.tag} ${attributes}>${item.content}</${item.tag}></li>`;
-        break;
-    }
-
-    // Xử lý children nếu có
+    // // Kiểm tra nếu có children và gọi lại hàm generateChildMenu để tạo submenu
     if (item.children && item.children.length > 0) {
-      html += `<ul class='submenu'>`;
-      html += generateHTML(item.children);
-      html += `</ul>`;
+      html += '<div class="menu-inmenu">'
+      html += generatePanel(item.children); // Gọi đệ quy để tạo submenu
+      html += '</div>'
     }
-
-    html += `</li>`;
+    html += '</li>'; // Kết thúc div cho menu
   });
 
-  html += '</ul></nav>';
-  html += `<style>.menu-container{width:100%;position:relative;}.horizontal-menu{padding:0;margin:0;display:flex;}.horizontal-menu>li{position:relative;}.horizontal-menu>li>a{display:block;padding:10px 15px;text-decoration:none;}.horizontal-menu>li>a:hover{background-color:#555;}.submenu{list-style:none;padding:0;margin:0;position:absolute;top:100%;left:0;width:100%;display:none;background-color:#333;z-index:1000;}.submenu>li>a{display:block;padding:10px 15px;text-decoration:none;}.submenu>li>a:hover{background-color:#555;}.horizontal-menu>li:hover>.submenu{display:block;}.nav-menu{display:flex;justify-content:center;align-items:center;padding:0;margin:0;background-color:#333;}.nav-menu>.horizontal-menu>li{margin:0 20px;}</style>`
+
+  return html; // Trả về HTML
+}
+
+//generate panel below nav
+export const generatePanel = (data) => {
+  let html = "";
+  html += '<div class="panel-mega-menu">';
+  data.forEach(item => {
+    html += '<ul>'
+    html += `<a class = 'sub-child' >${item.name}</a>`
+    html += '</ul>'
+    if (item.children && item.children.length > 0) {
+      generatePanel(item.children);
+    }
+  });
+  html += '</div>'
   return html;
-};
+}
 
 // Tạo menu mới
 var newMenu = generateHTML(MENU_DATA);
-var newMenuMobile = generateHTMLMobile(MENU_DATA);
+// var newMenuMobile = generateHTMLMobile(MENU_DATA);
 // Chèn menu mới vào trong .header-wrapper
 originalMenu.insertAdjacentHTML('afterend', newMenu);
-mobileMenu.insertAdjacentHTML('afterend', newMenuMobile);
+// mobileMenu.insertAdjacentHTML('afterend', newMenuMobile);
