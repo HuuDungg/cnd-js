@@ -290,4 +290,4 @@ var newMenu = generateHTML(MENU_DATA);
 var newMenuMobile = generateHTMLMobile(MENU_DATA);
 // Chèn menu mới vào trong .header-wrapper
 originalMenu.insertAdjacentHTML('afterend', newMenu);
-mobileMenu.insertAdjacentHTML('afterend', newMenu);
+mobileMenu.insertAdjacentHTML('afterend', newMenuMobile);
