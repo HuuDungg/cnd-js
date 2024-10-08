@@ -684,7 +684,7 @@ const MENU_DATA =
 
 
 const generateHTML = (data) => {
-  let html = '<nav> <ul class=\'horizontal-list\'>'; // Sửa class để phù hợp với yêu cầu
+  let html = '<nav class="header__inline-menu"> <ul class=\'horizontal-list\'>'; // Sửa class để phù hợp với yêu cầu
 
   data.forEach(item => {
     // Xử lý thẻ <a> hoặc thẻ khác
