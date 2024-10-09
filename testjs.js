@@ -697,7 +697,7 @@ const generateHTML = (data) => {
 
     // Xử lý children nếu có
     if (item.children && item.children.length > 0) {
-      html += `<a class=\'title-menu\ header__menu-item\' href=\'${item.href}\'>${item.name}</a>`;
+      html += `<p class=\'title-menu\ header__menu-item\' href=\'${item.href}\'>${item.name}</p>`;
       html += '<ul class=\'panel-menu\'>';
       html += generateChildMenu(item.children);
       html += '</ul>';
@@ -708,6 +708,36 @@ const generateHTML = (data) => {
 
   html += '</ul></nav>';
   html += "<style>.horizontal-list{display:flex;justify-content:center;list-style:none;padding:0;margin:0;}.horizontal-list li{margin:0 10px;}.title-menu:hover{text-decoration:underline;}.panel-menu{display:none;background-color:#4CAF50;position:absolute;width:100vw;left:0;min-height:200px;list-style:none;}.title-menu:hover+.panel-menu,.panel-menu:hover{display:flex;}.title-menu{padding:10px 15px;text-decoration:none;}.menu-item{display:block;padding:10px 15px;color:white;text-decoration:none;}.menu-item:hover{background-color:rgba(255,255,255,0.3);}.menu-inmenu{list-style-type:none;}.panel-menu,.panel-mega-menu ul{justify-content:space-around;padding:10px;}.menu{padding:10px 0;}.panel-mega-menu ul li{padding:5px 10px;color:white;}.sub-child{position:relative;left:5px;}</style>";
+
+
+  return html;
+};
+
+const generateHTMLMobile = (data) => {
+  let html = '<nav class="menu-drawer__navigation"> <ul class=\'horizontal-list-mobile\'>'; // Sửa class để phù hợp với yêu cầu
+
+  data.forEach(item => {
+    // Xử lý thẻ <a> hoặc thẻ khác
+    html += '<li>'; // Mở thẻ <li> ở đây
+
+    //handle if have not child  
+    if (item.children.length === 0) {
+      html += `<a class=\'title-menu\ header__menu-item\' href=\'${item.href}\'>${item.name}</a>`;
+    }
+
+    // Xử lý children nếu có
+    if (item.children && item.children.length > 0) {
+      html += `<p class=\'title-menu\ header__menu-item\' href=\'${item.href}\'>${item.name}</p>`;
+      html += '<ul class=\' menu-drawer__menu has-submenu list-menu panel-menu list-menu\'>';
+      html += generateChildMenu(item.children);
+      html += '</ul>';
+    }
+
+    html += '</li>'; // Đóng thẻ <li> ở đây
+  });
+
+  html += '</ul></nav>';
+  html += "<style>.horizontal-list-mobile{display: block !important;justify-content:center;list-style:none;padding:0;margin:0;}.horizontal-list li{margin:0 10px;}.title-menu:hover{text-decoration:underline;}.panel-menu{display:none;background-color:#4CAF50;position:absolute;width:100vw;left:0;min-height:200px;list-style:none;}.title-menu:hover+.panel-menu,.panel-menu:hover{display:flex;}.title-menu{padding:10px 15px;text-decoration:none;}.menu-item{display:block;padding:10px 15px;color:white;text-decoration:none;}.menu-item:hover{background-color:rgba(255,255,255,0.3);}.menu-inmenu{list-style-type:none;}.panel-menu,.panel-mega-menu ul{justify-content:space-around;padding:10px;}.menu{padding:10px 0;}.panel-mega-menu ul li{padding:5px 10px;color:white;}.sub-child{position:relative;left:5px;}</style>";
 
 
   return html;
@@ -761,6 +791,7 @@ const generatePanel = (data) => {
 
 // Tạo menu mới
 var newMenu = generateHTML(MENU_DATA);
+var newMenuMobile = generateHTMLMobile(MENU_DATA);
 
 originalMenu.insertAdjacentHTML('afterend', newMenu);
-//
+mobileMenu.insertAdjacentHTML('afterend', newMenuMobile);
