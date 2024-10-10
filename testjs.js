@@ -60,7 +60,7 @@ const MENU_DATA =
               "icon": "",
               "children": []
             }
-          ],
+          ]
         },
         {
           "id": "1df06753-b885-4368-b0a7-dbe2db1597cb",
@@ -117,7 +117,7 @@ const MENU_DATA =
               "icon": "",
               "children": []
             }
-          ],
+          ]
         },
         {
           "id": "c0045b6b-8de5-4518-bc8b-fe79866929ac",
@@ -347,7 +347,7 @@ const MENU_DATA =
             }
           ]
         }
-      ]
+      ],
     },
     {
       "id": "49609b50-6211-4571-bd64-d378acc287f3",
@@ -478,7 +478,7 @@ const MENU_DATA =
             }
           ]
         }
-      ]
+      ],
     },
     {
       "id": "2e924f57-5b2f-4e62-b9a8-51320bcae49f",
@@ -621,10 +621,10 @@ const MENU_DATA =
           "icon": "",
           "children": []
         }
-      ]
+      ],
     },
     {
-      "id": "c863145d-fc47-4b3f-a4d3-75b69d5e64c6",
+      "id": "aa10d344-9eda-4b7e-87d1-63cc9c1b66e2",
       "name": "Home",
       "css": "menu-item",
       "class": "home",
@@ -637,35 +637,106 @@ const MENU_DATA =
       "icon": "",
       "children": [
         {
-          "id": "1c02e7eb-c625-494f-8a3a-8605a0ce7d39",
-          "name": "Image",
+          "id": "7ac996ec-d36f-4025-914c-49401746e3a5",
+          "name": "Sub menu",
           "css": "menu-item",
           "class": "home header__menu-item",
           "level": 1,
           "isEditting": false,
-          "tag": "img",
-          "content": "Image",
-          "href": "https://www.toei-animation.com/wp-content/uploads/2019/02/one_piece_product.jpg",
+          "tag": "a",
+          "content": "Sub menu",
+          "href": "https://onextdigital.com/",
+          "target": "_self",
+          "icon": "",
+          "children": [
+            {
+              "id": "bcb85eb7-b4f6-415f-8fb9-95fcf8fe3836",
+              "name": "Sub menu",
+              "css": "menu-item",
+              "class": "home header__menu-item",
+              "level": 1,
+              "isEditting": false,
+              "tag": "a",
+              "content": "Sub menu",
+              "href": "https://onextdigital.com/",
+              "target": "_self",
+              "icon": "",
+              "children": []
+            },
+            {
+              "id": "8cc1db92-08c7-4338-8ad0-2f84f9e1848f",
+              "name": "Sub menu",
+              "css": "menu-item",
+              "class": "home header__menu-item",
+              "level": 1,
+              "isEditting": false,
+              "tag": "a",
+              "content": "Sub menu",
+              "href": "https://onextdigital.com/",
+              "target": "_self",
+              "icon": "",
+              "children": []
+            },
+            {
+              "id": "5480e3cc-2b5b-4213-a48c-f94352594c1a",
+              "name": "Sub menu",
+              "css": "menu-item",
+              "class": "home header__menu-item",
+              "level": 1,
+              "isEditting": false,
+              "tag": "a",
+              "content": "Sub menu",
+              "href": "https://onextdigital.com/",
+              "target": "_self",
+              "icon": "",
+              "children": []
+            },
+            {
+              "id": "f0469b8a-d004-41c6-aed4-3471f386f39e",
+              "name": "Sub menu",
+              "css": "menu-item",
+              "class": "home header__menu-item",
+              "level": 1,
+              "isEditting": false,
+              "tag": "a",
+              "content": "Sub menu",
+              "href": "https://onextdigital.com/",
+              "target": "_self",
+              "icon": "",
+              "children": []
+            },
+            {
+              "id": "55f8beb4-388b-4145-94e2-3da65a5e6bff",
+              "name": "Sub menu",
+              "css": "menu-item",
+              "class": "home header__menu-item",
+              "level": 1,
+              "isEditting": false,
+              "tag": "a",
+              "content": "Sub menu",
+              "href": "https://onextdigital.com/",
+              "target": "_self",
+              "icon": "",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "484ab50c-f21c-4ab3-b5ca-8b8f9e787bd4",
+          "name": "Sub menu",
+          "css": "menu-item",
+          "class": "home header__menu-item",
+          "level": 1,
+          "isEditting": false,
+          "tag": "map",
+          "content": "Sub menu",
+          "href": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.602467544531!2d105.59766637549743!3d21.32411748040012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134e55bdb346d4f%3A0x51915dcc8bfc6620!2zVHLhuqduIER1eSBIxrBuZywgS2h1IMSRw7QgdGjhu4sgSMOgIFRpw6puLCBMacOqbiBC4bqjbywgVHAuIFbEqW5oIFnDqm4sIFbEqW5oIFBow7pjLCBWaWV0bmFt!5e1!3m2!1sen!2s!4v1728526032441!5m2!1sen!2s\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
           "target": "_self",
           "icon": "",
           "children": []
         },
         {
-          "id": "aa63a394-7219-45c3-a70a-3fafeecdf6aa",
-          "name": "Image",
-          "css": "menu-item",
-          "class": "home header__menu-item",
-          "level": 1,
-          "isEditting": false,
-          "tag": "img",
-          "content": "Image",
-          "href": "https://www.toei-animation.com/wp-content/uploads/2019/02/one_piece_product.jpg",
-          "target": "_self",
-          "icon": "",
-          "children": []
-        },
-        {
-          "id": "64d5d0a0-de99-4f63-ab24-4c05adb29a7c",
+          "id": "d297c180-191f-407c-b860-9bd4c4d6e218",
           "name": "Image",
           "css": "menu-item",
           "class": "home header__menu-item",
@@ -709,12 +780,12 @@ const generateHTML = (data) => {
   html += '</ul></nav>';
   html += "<style>.horizontal-list{display:flex;justify-content:center;list-style:none;padding:0;margin:0;}.horizontal-list li{margin:0 10px;}.title-menu:hover{text-decoration:underline;}.panel-menu{display:none;background-color:#4CAF50;position:absolute;width:100vw;left:0;min-height:200px;list-style:none;}.title-menu:hover+.panel-menu,.panel-menu:hover{display:flex;}.title-menu{padding:10px 15px;text-decoration:none;}.menu-item{display:block;padding:10px 15px;color:white;text-decoration:none;}.menu-item:hover{background-color:rgba(255,255,255,0.3);}.menu-inmenu{list-style-type:none;}.panel-menu,.panel-mega-menu ul{justify-content:space-around;padding:10px;}.menu{padding:10px 0;}.panel-mega-menu ul li{padding:5px 10px;color:white;}.sub-child{position:relative;left:5px;}</style>";
 
-
   return html;
 };
 
 const generateHTMLMobile = (data) => {
-  let html = '<nav class="menu-drawer__navigation"> <ul class=\'horizontal-list-mobile\'>'; // Sửa class để phù hợp với yêu cầu
+  let html = `<nav class="menu-drawer__navigation"> `;
+  html += `<ul class=\'horizontal-list-mobile menu-drawer__menu has-submenu list-menu'>`
 
   data.forEach(item => {
     // Xử lý thẻ <a> hoặc thẻ khác
@@ -722,7 +793,7 @@ const generateHTMLMobile = (data) => {
 
     //handle if have not child  
     if (item.children.length === 0) {
-      html += `<a class=\'title-menu\ header__menu-item\' href=\'${item.href}\'>${item.name}</a>`;
+      html += `<a class=\'title-menu\ header__menu-item menu-drawer__menu-item list-menu__item link link--text focus-inset' href=\'${item.href}\'>${item.name}</a>`;
     }
 
     // Xử lý children nếu có
@@ -737,9 +808,7 @@ const generateHTMLMobile = (data) => {
   });
 
   html += '</ul></nav>';
-  html += "<style>.horizontal-list-mobile{display: block !important;justify-content:center;list-style:none;padding:0;margin:0;}.horizontal-list li{margin:0 10px;}.title-menu:hover{text-decoration:underline;}.panel-menu{display:none;background-color:#4CAF50;position:absolute;width:100vw;left:0;min-height:200px;list-style:none;}.title-menu:hover+.panel-menu,.panel-menu:hover{display:flex;}.title-menu{padding:10px 15px;text-decoration:none;}.menu-item{display:block;padding:10px 15px;color:white;text-decoration:none;}.menu-item:hover{background-color:rgba(255,255,255,0.3);}.menu-inmenu{list-style-type:none;}.panel-menu,.panel-mega-menu ul{justify-content:space-around;padding:10px;}.menu{padding:10px 0;}.panel-mega-menu ul li{padding:5px 10px;color:white;}.sub-child{position:relative;left:5px;}</style>";
-
-
+  html += "<style>.horizontal-list-mobile{display: block !important;justify-content:center;list-style:none;padding:0;margin:0;}.horizontal-list li{margin:0 10px;}.title-menu:hover{text-decoration:underline;}.panel-menu{display:none;background-color:#4CAF50;position:absolute;width:100vw;left:0;min-height:200px;list-style:none;}.title-menu:hover+.panel-menu,.panel-menu:hover{display:flex;}.title-menu{padding:10px 15px;text-decoration:none;margin: 0 !important;}.menu-item{display:block;padding:10px 15px;color:white;text-decoration:none;}.menu-item:hover{background-color:rgba(255,255,255,0.3);}.menu-inmenu{list-style-type:none;}.panel-menu,.panel-mega-menu ul{justify-content:space-around;padding:10px;}.menu{padding:10px 0;}.panel-mega-menu ul li{padding:5px 10px;color:white;}.sub-child{position:relative;left:5px;}</style>";
   return html;
 };
 
@@ -751,11 +820,27 @@ const generateChildMenu = (data) => {
   data.forEach(item => {
     html += '<li class=\'menu\'>';
     // Tạo thẻ cho mỗi mục
-    if (item.tag === 'img') {
-      html += `<img class=\'title-menu\' src=\'${item.href}\' style=\'overflow: hidden; width: 170px; height: 170px;\' />`;
-    } else {
-      html += `<a class=\'title-menu\ header__menu-item \' href=\'${item.href}\'>${item.name}</a>`;
+    switch (item.tag) {
+      // Trường hợp 'img': Tạo thẻ <img> với đường dẫn từ item.href
+      case 'img':
+        html += `<img class='title-menu' src='${item.href}' style='overflow: hidden; width: 170px; height: 170px;' />`;
+        break; // Dừng xử lý để tránh chạy vào các trường hợp tiếp theo
+
+      // Trường hợp 'a': Tạo thẻ <a> với href và tên từ item
+      case 'a':
+        html += `<a class='title-menu header__active-menu-item' href='${item.href}'>${item.name}</a>`;
+        break; // Dừng xử lý
+
+      // Trường hợp 'map': Tạo thẻ <div> chứa nội dung từ item.href
+      case 'map':
+        html += `<div class='map-panel'>${item.href}</div>`;
+        break; // Dừng xử lý
+
+      // Trường hợp không khớp: Bạn có thể xử lý trường hợp này nếu cần
+      default:
+        console.warn('Unknown tag type:', item.tag); // Cảnh báo nếu tag không hợp lệ
     }
+
 
     // // Kiểm tra nếu có children và gọi lại hàm generateChildMenu để tạo submenu
     if (item.children && item.children.length > 0) {
